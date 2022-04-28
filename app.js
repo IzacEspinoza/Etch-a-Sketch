@@ -19,6 +19,16 @@ button.addEventListener('click', function(){
 
 });
 
+/* NOTE ON CLEARING GRID WHEN NEW ONE IS MADE */
+/*
+function changeSize(value) {
+  setCurrentSize(value)
+  updateSizeValue(value)
+  reloadGrid()
+}
+*/
+/********************************** */
+
 //add event listener to the grid-items,
 //so when we hover over the grid-item, the background color changes(drawing)
 const divs = document.querySelectorAll('.grid-item');
