@@ -12,10 +12,8 @@ makeRows(16);
 const button  = document.querySelector('#set-grid');
 //add an event listener to this button, so 
 button.addEventListener('click', function(){ 
-    
    //prompt user for new grid size
    let newGrid = prompt('How many squares?');
-   
    //call makeRows with this value
    makeRows(newGrid);
 
@@ -33,6 +31,7 @@ divs.forEach(item => {
 //function makes the grid pretty much, with specified dimensions
 function makeRows(/*rows, cols*/squares) {
 
+    
     /* essentially, 
      * grabs the container, 
      *makes a new css rule for specified prop, 
