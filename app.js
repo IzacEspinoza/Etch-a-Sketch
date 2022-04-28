@@ -15,7 +15,7 @@ function makeRows(rows, cols) {
   //making a div until the area we want for the grid is reached
   for (c = 0; c < (rows * cols); c++) {
     let cell = document.createElement("div");
-    cell.innerText = (c + 1);//sets some text inside, optional
+    //cell.innerText = (c + 1);//sets some text inside, optional
     container.appendChild(cell).className = "grid-item";//appends to container, and gives it a class name
   };
 };//end function
