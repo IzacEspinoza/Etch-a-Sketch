@@ -1,43 +1,35 @@
-//reference our container in our html
+/***Important variables(DOM references) */
 const container = document.getElementById("container");
+const button  = document.querySelector('#set-grid');
+/****************************************/
+
+
+
+/***Event listeners and stuff */
+
+button.addEventListener('click', function(){ 
+  //prompt user for new grid size
+  let newGrid = prompt('How many squares?');
+  //call makeRows with this value
+  makeRows(newGrid);
+});
+
+/********************************/
+
+/************--Main--**************/
 
 //create the default grid(16x16)
 makeRows(16);
-
-//make button, 
-//when we click, prompt(set dimensions of grid)
-//call makeRows(*with values entered)
-
-//reference our button
-const button  = document.querySelector('#set-grid');
-//add an event listener to this button, so 
-button.addEventListener('click', function(){ 
-   //prompt user for new grid size
-   let newGrid = prompt('How many squares?');
-   //call makeRows with this value
-   makeRows(newGrid);
-
-});
-
-/* NOTE ON CLEARING GRID WHEN NEW ONE IS MADE */
-/*
-function changeSize(value) {
-  setCurrentSize(value)
-  updateSizeValue(value)
-  reloadGrid()
-}
-*/
-/********************************** */
-
-//add event listener to the grid-items,
-//so when we hover over the grid-item, the background color changes(drawing)
+//This is what lets the user actually 'draw'
 const divs = document.querySelectorAll('.grid-item');
 divs.forEach(item => {
     item.addEventListener('mouseover', function(){
         item.style.backgroundColor = 'blueviolet';//change this later to be a color chosen by user
     })//end event listener
 })//end foreach
+/********************* */
 
+/*Functions*************/
 //function makes the grid pretty much, with specified dimensions
 function makeRows(/*rows, cols*/squares) {
 
@@ -58,3 +50,16 @@ function makeRows(/*rows, cols*/squares) {
     container.appendChild(cell).className = "grid-item";//appends to container, and gives it a class name
   };
 };//end function
+
+/******************************/
+
+/* NOTE ON CLEARING GRID WHEN NEW ONE IS MADE */
+/*
+function changeSize(value) {
+  setCurrentSize(value)
+  updateSizeValue(value)
+  reloadGrid()
+}
+*/
+/********************************** */
+
