@@ -1,13 +1,39 @@
-/***Important variables(DOM references) */
+//DEFAULT grid size
+const DEFAULT_GRID = 16;
+
+//reference our container in our html
 const container = document.getElementById("container");
+
+//create the default grid(16x16)
+makeRows(DEFAULT_GRID);
+
+//make button, 
+//when we click, prompt(set dimensions of grid)
+//call makeRows(*with values entered)
+
+//reference our button
 const button  = document.querySelector('#set-grid');
-/****************************************/
+//add an event listener to this button, so 
+button.addEventListener('click', function(){ 
+   //prompt user for new grid size
+   //let newGrid = prompt('How many squares?');
+   //call makeRows with this value
+   //makeRows(newGrid);
 
-/************--Main--**************/
+});
 
+/* NOTE ON CLEARING GRID WHEN NEW ONE IS MADE */
+/*
+function changeSize(value) {
+  setCurrentSize(value)
+  updateSizeValue(value)
+  reloadGrid()
+}
+*/
+/********************************** */
 
-
-//This is what lets the user actually 'draw'(currently by HOVER)
+//add event listener to the grid-items,
+//so when we hover over the grid-item, the background color changes(drawing)
 const divs = document.querySelectorAll('.grid-item');
 divs.forEach(item => {
     item.addEventListener('mouseover', function(){
@@ -15,23 +41,10 @@ divs.forEach(item => {
     })//end event listener
 })//end foreach
 
-//new grid button
-button.addEventListener('click', function(){ 
-  //prompt user for new grid size
-  let newGrid = prompt('How many squares?');
-  //clear current grid?
-  //clear();
-  //call makeRows with this value
-  makeRows(newGrid);
-});
-
-//Default grid(16x16)
-makeRows(16);
-/********************************/
-
-/*Functions*************/
 //function makes the grid pretty much, with specified dimensions
 function makeRows(/*rows, cols*/squares) {
+
+    
     /* essentially, 
      * grabs the container, 
      *makes a new css rule for specified prop, 
@@ -48,24 +61,3 @@ function makeRows(/*rows, cols*/squares) {
     container.appendChild(cell).className = "grid-item";//appends to container, and gives it a class name
   };
 };//end function
-
-//clear the grid
-function clear(){
-  /* simply clears the current grid*/
-  //remove the grid-items styling, so there is no color in the boxes
-  //divs.style.backgroundColor = 'white';
-  
-}//end function
-
-/******************************/
-
-/* NOTE ON CLEARING GRID WHEN NEW ONE IS MADE */
-/*
-function changeSize(value) {
-  setCurrentSize(value)
-  updateSizeValue(value)
-  reloadGrid()
-}
-*/
-/********************************** */
-
