@@ -1,6 +1,8 @@
 //DEFAULT grid size
 const DEFAULT_GRID = 16;
 
+
+
 //reference our container in our html
 const container = document.getElementById("container");
 
@@ -10,27 +12,32 @@ makeRows(DEFAULT_GRID);
 //make button, 
 //when we click, prompt(set dimensions of grid)
 //call makeRows(*with values entered)
-
 //reference our button
 const button  = document.querySelector('#set-grid');
 //add an event listener to this button, so 
 button.addEventListener('click', function(){ 
+
    //prompt user for new grid size
-   //let newGrid = prompt('How many squares?');
+   let newSize = prompt("What size grid would you like?(enter one number)");
+   //clear current grid
+   clearGrid();
    //call makeRows with this value
-   //makeRows(newGrid);
+   //makeRows(newSize);
+   
 
 });
 
-/* NOTE ON CLEARING GRID WHEN NEW ONE IS MADE */
-/*
-function changeSize(value) {
-  setCurrentSize(value)
-  updateSizeValue(value)
-  reloadGrid()
-}
-*/
-/********************************** */
+//clear grid
+// function that clears the grid
+function clearGrid(){
+ //remove the painting
+ let allCells = document.querySelectorAll('.grid-item').forEach(cell => {
+  cell.style.backgroundColor = "white";
+  
+ })
+};
+
+  
 
 //add event listener to the grid-items,
 //so when we hover over the grid-item, the background color changes(drawing)
@@ -43,8 +50,6 @@ divs.forEach(item => {
 
 //function makes the grid pretty much, with specified dimensions
 function makeRows(/*rows, cols*/squares) {
-
-    
     /* essentially, 
      * grabs the container, 
      *makes a new css rule for specified prop, 
@@ -61,3 +66,6 @@ function makeRows(/*rows, cols*/squares) {
     container.appendChild(cell).className = "grid-item";//appends to container, and gives it a class name
   };
 };//end function
+
+
+
