@@ -14,16 +14,13 @@ button.addEventListener('click', function(){
    let newSize = prompt("What size grid would you like?(enter one number)");
    clearGrid();
    //call makeRows with this value
-   //makeRows(newSize);
+   makeRows(newSize);
 });
 
 //clear the current grid
 function clearGrid(){
- //sets all the grid items colors back to white
- let allCells = document.querySelectorAll('.grid-item');
- allCells.forEach(cell => {
-    cell.style.backgroundColor = "white";
- })
+ //clears grid by deleting all the div cells made from makeRows()
+document.querySelectorAll('.grid-item').forEach((e) => e.parentNode.removeChild(e));
 };
 
 //this is what allows the user to 'draw'
