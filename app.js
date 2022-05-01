@@ -15,6 +15,13 @@ button.addEventListener('click', function(){
    clearGrid();
    //call makeRows with this value
    makeRows(newSize);
+   //after clear, allow drawing again
+  const divs = document.querySelectorAll('.grid-item');
+  divs.forEach(item => {
+    item.addEventListener('mouseover', function(){
+        item.style.backgroundColor = 'blueviolet';//change this later to be a color chosen by user
+    })//end mouseover
+})//end forEach
 });
 
 //clear the current grid
