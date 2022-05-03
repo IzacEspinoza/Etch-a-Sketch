@@ -2,15 +2,17 @@
 const DEFAULT_GRID = 16;
 //container div
 const container = document.getElementById("container");
-//New sketch button
-const button  = document.querySelector('#set-grid');
+//reset grid button
+const reset  = document.querySelector('#set-grid');
+//clear grid button
+const clear = document.querySelector('#erase');
 
 
 //create the default grid(16x16)
 makeRows(DEFAULT_GRID);
 
 //on click, clears grid and makes new one based on users input
-button.addEventListener('click', function(){ 
+reset.addEventListener('click', function(){ 
    let newSize = prompt("What size grid would you like?(enter one number)");
    clearGrid();
    //call makeRows with this value
@@ -23,6 +25,15 @@ button.addEventListener('click', function(){
     })//end mouseover
 })//end forEach
 });
+
+//on click, clears current grid 
+clear.addEventListener('click', function(){
+  //just get rid of the colors, keep the current grid
+  let gridItems = document.querySelectorAll('.grid-item');
+  gridItems.forEach(box => {
+    box.style.backgroundColor = 'white';
+  })//end for each
+});//end event
 
 //clear the current grid
 function clearGrid(){
